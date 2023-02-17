@@ -2,24 +2,25 @@
 
 @section('title', __('auth.signin'))
 
-@section('header')
-    @include('layouts.header')
-@endsection
-
 @section('content')
     <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
-        <form action="{{ route('auth.login') }}">
+
+        @include('partials.alerts')
+
+        <form method="POST" action="{{ route('auth.login') }}">
+
+            @csrf
 
             <!-- Email input -->
             <div class="mb-3">
-                <label class="form-label" for="loginName">@lang('auth.email-or-username')</label>
-                <input type="email" id="loginName" class="form-control" />
+                <label class="form-label" for="username">@lang('auth.email-or-username')</label>
+                <input name="username" type="text" id="username" class="form-control" />
             </div>
 
             <!-- Password input -->
             <div class="mb-3">
-                <label class="form-label" for="loginPassword">@lang('auth.password')</label>
-                <input type="password" id="loginPassword" class="form-control" />
+                <label class="form-label" for="password">@lang('auth.password')</label>
+                <input name="password" type="password" id="password" class="form-control" />
             </div>
 
             @include('auth.validation')
@@ -45,13 +46,9 @@
 
             <!-- Register buttons -->
             <div class="text-center">
-                <p>@lang('auth.no-register') <a href="{{ route('auth.register') }}">@lang('auth.signup')</a></p>
+                <p>@lang('auth.no-register') <a href="{{ route('auth.register.form') }}">@lang('auth.signup')</a></p>
             </div>
 
         </form>
     </div>
-@endsection
-
-@section('footer')
-    @include('layouts.footer')
 @endsection

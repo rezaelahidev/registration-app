@@ -12,9 +12,11 @@
 
 <body>
 
-    <div class="">
-        @yield('header')
-    </div>
+    @section('header')
+        @include('partials.header')
+    @endsection
+
+    @yield('header')
 
     <div class="container">
 
@@ -28,9 +30,12 @@
         </div>
     </div>
 
-    <div class="">
-        @yield('footer')
-    </div>
+    @section('footer')
+        @include('partials.footer')
+    @endsection
+
+    @yield('footer')
+
 
     {{-- Loading scripts --}}
     <script src="{{ asset('/js/popper.min.js') }}"></script>

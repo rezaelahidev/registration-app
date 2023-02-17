@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,21 +19,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    if (Auth::check()) {
+        return view('home');
+    }
+
+    return view('auth.login-form');
+})->name('home');
 
 Route::group(['prefix' => 'auth', 'namespace' => 'Auth'], function () {
 
-    Route::get('/login', [LoginController::class, 'showUserLoginForm'])->name('auth.login');
-    Route::get('/register', [RegisterController::class, 'showUserRegisterationForm'])->name('auth.register');
-});
-
-Route::get('/greeting/{locale}', function (string $locale) {
-    if (!in_array($locale, ['en', 'es', 'fr'])) {
-        abort(400);
-    }
-
-    App::setLocale($locale);
-
-    // ...
+    Route::get('login', [LoginController::class, 'showUserLoginForm'])->name('auth.login.form');
+    Route::post('login', [LoginController::class, 'login'])->name('auth.login');
+    Route::get('register', [RegisterController::class, 'showUserRegisterationForm'])->name('auth.register.form');
+    Route::post('register', [RegisterController::class, 'register'])->name('auth.register');
 });

@@ -22,10 +22,10 @@
 
                     @auth
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('auth.profile') }}">@lang('auth.signin')</a>
+                            <a class="nav-link" href="">{{ Auth::user()->name }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('auth.register') }}">@lang('auth.signup')</a>
+                            <a class="nav-link" href="{{ route('auth.logout') }}">@lang('auth.logout')</a>
                         </li>
                     @endauth
                 </ul>

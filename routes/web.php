@@ -33,3 +33,5 @@ Route::group(['prefix' => 'auth', 'namespace' => 'Auth'], function () {
     Route::get('register', [RegisterController::class, 'showUserRegisterationForm'])->name('auth.register.form');
     Route::post('register', [RegisterController::class, 'register'])->name('auth.register');
 });
+
+Route::get('logout', [LoginController::class, 'logout'])->name('auth.logout');

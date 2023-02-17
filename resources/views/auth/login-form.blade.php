@@ -13,8 +13,8 @@
 
             <!-- Email input -->
             <div class="mb-3">
-                <label class="form-label" for="username">@lang('auth.email-or-username')</label>
-                <input name="username" type="text" id="username" class="form-control" />
+                <label class="form-label" for="email">@lang('auth.email')</label>
+                <input name="email" type="text" id="email" class="form-control" />
             </div>
 
             <!-- Password input -->

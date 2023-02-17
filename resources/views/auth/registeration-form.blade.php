@@ -35,6 +35,12 @@
                 <input name="password" type="password" id="password" class="form-control" />
             </div>
 
+            <!-- Password input -->
+            <div class="mb-3">
+                <label class="form-label" for="phone_number">@lang('auth.phone_number')</label>
+                <input name="phone_number" type="phone_number" id="phone_number" class="form-control" />
+            </div>
+
             <!-- Repeat Password input -->
             <div class="mb-3">
                 <label class="form-label" for="password_confirmation">@lang('auth.confirm-password')</label>

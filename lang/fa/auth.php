@@ -14,6 +14,7 @@ return [
     */
 
     'signin' => 'ورود',
+    'logout' => 'خروج',
     'signup' => 'ثبت نام',
     'email' => 'ایمیل',
     'name' => 'نام',
@@ -24,5 +25,6 @@ return [
     'password' => 'رمز عبور',
     'remember-me' => 'مرا به خاطر بسپار!',
     'forgot-password' => 'فراموشی رمزعبور؟',
-    'no-register' => 'هنوز ثبت نام نکرده اید؟'
+    'no-register' => 'هنوز ثبت نام نکرده اید؟',
+    'phone_number' => 'شماره همراه',
 ];
